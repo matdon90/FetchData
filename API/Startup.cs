@@ -23,6 +23,8 @@ namespace API
             services.AddApplication();
             services.AddPersistence(Configuration);
 
+            services.AddHttpContextAccessor();
+
             services.AddControllers();
         }
 

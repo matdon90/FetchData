@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Application.Cushions.Queries;
+using Application.Cushions.Queries.ListCushion;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
-    public class CushionsController : ControllerBase
-    {
 
+    public class CushionsController : ApiController
+    {
+        [HttpGet]
+        public async Task<ActionResult<List<CushionDto>>> GetList()
+        {
+            return Ok(await Mediator.Send(new ListCushionQuery()));
+        }
     }
 }
