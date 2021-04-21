@@ -25,6 +25,8 @@ namespace API
 
             services.AddHttpContextAccessor();
 
+            services.AddSwaggerGen();
+
             services.AddControllers();
         }
 
@@ -37,6 +39,13 @@ namespace API
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(opt =>
+            {
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "DataFetch API v1");
+                opt.RoutePrefix = string.Empty;
+            });
 
             app.UseRouting();
 
