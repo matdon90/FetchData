@@ -6,7 +6,7 @@ namespace Persistence
 {
     public class PostgresDbContext : DbContext, IPostgresDbContext
     {
-        public PostgresDbContext(DbContextOptions options) : base(options)
+        public PostgresDbContext(DbContextOptions<PostgresDbContext> options) : base(options)
         {
         }
 

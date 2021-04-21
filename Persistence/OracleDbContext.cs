@@ -6,7 +6,7 @@ namespace Persistence
 {
     public class OracleDbContext : DbContext, IOracleDbContext
     {
-        public OracleDbContext(DbContextOptions options) : base(options)
+        public OracleDbContext(DbContextOptions<OracleDbContext> options) : base(options)
         {
         }
 
