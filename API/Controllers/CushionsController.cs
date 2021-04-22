@@ -1,9 +1,7 @@
 ﻿using Application.Cushions.Queries;
 using Application.Cushions.Queries.ListCushion;
 using Application.Cushions.Queries.SingleCushion;
-using Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,10 +16,9 @@ namespace API.Controllers
         }
 
         [HttpGet("{stand}/{position}")]
-        public async Task<ActionResult<CushionDto>> GetCushionSingle(int stand, string position)
+        public async Task<ActionResult<CushionDto>> GetCushionSingle(int stand, int position)
         {
-            var rollPosition = (RollPosition)Enum.Parse(typeof(RollPosition), position, true);
-            return Ok(await Mediator.Send(new SingleCushionQuery(stand, rollPosition)));
+            return Ok(await Mediator.Send(new SingleCushionQuery(stand, position)));
         }
     }
 }
