@@ -19,7 +19,7 @@ namespace Persistence
             #region Oracle configuration
             services.AddDbContext<OracleDbContext>(options =>
             {
-                options.UseOracle(configuration.GetConnectionString("OracleConnectionString"));
+                options.UseOracle(configuration.GetConnectionString("OracleConnectionString"), opt => opt.UseOracleSQLCompatibility("11"));
             });
             #endregion
 
